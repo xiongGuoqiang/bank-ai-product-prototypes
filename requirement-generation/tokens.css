@@ -1,0 +1,47 @@
+:root {
+  --color-canvas: oklch(97.4% 0.008 246);
+  --color-surface: oklch(99.6% 0.002 246);
+  --color-surface-muted: oklch(96.1% 0.009 246);
+  --color-ink: oklch(25% 0.032 252);
+  --color-muted: oklch(52% 0.025 250);
+  --color-navy: oklch(29% 0.078 251);
+  --color-navy-hover: oklch(35% 0.083 249);
+  --color-blue: oklch(55% 0.115 238);
+  --color-blue-soft: oklch(95% 0.022 237);
+  --color-line: oklch(90.5% 0.013 246);
+  --color-line-strong: oklch(83% 0.022 246);
+  --color-success: oklch(49% 0.09 157);
+  --color-success-soft: oklch(95% 0.025 157);
+  --color-warning: oklch(58% 0.11 71);
+  --color-warning-soft: oklch(96% 0.033 78);
+  --color-danger: oklch(52% 0.13 28);
+  --color-shadow: oklch(20% 0.035 250 / 0.1);
+  --color-backdrop: oklch(18% 0.04 250 / 0.58);
+
+  --font-display: -apple-system, "SF Pro Display", "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-body: -apple-system, "SF Pro Text", "PingFang SC", "Noto Sans SC", sans-serif;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-md: 15px;
+  --text-lg: 20px;
+  --text-xl: 30px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  --radius-sm: 7px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --rule-thin: 1px;
+  --dur-fast: 140ms;
+  --dur-normal: 220ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
