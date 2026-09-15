@@ -83,12 +83,12 @@
   <header class="topbar">
     <div class="brand"><div class="brandmark">QC</div><div class="brandname">启成财智<small>ENTERPRISE AI</small></div></div>
     <nav class="tabs"><button class="top-tab active" data-view="generate">需求生成</button><button class="top-tab" data-view="knowledge">知识库</button></nav>
-    <div class="top-right"><button class="icon-btn" title="帮助">?</button><div class="user">陈</div></div>
+    <div class="top-right"><button class="icon-btn" id="helpBtn" title="帮助" aria-label="查看帮助">?</button><div class="user">陈</div></div>
   </header>
   <main>
     <section class="view active" id="generateView" data-screen-label="需求生成输入页">
       <div class="page">
-        <div class="page-head"><div><h1>智能需求生成</h1><p>输入业务想法并选择项目知识库，系统将先检查生成需求文档所需的信息，再生成正式需求文档及后续交付物。</p></div><button class="btn">历史任务</button></div>
+        <div class="page-head"><div><h1>智能需求生成</h1><p>输入业务想法并选择项目知识库，系统将先检查生成需求文档所需的信息，再生成正式需求文档及后续交付物。</p></div><button class="btn" id="historyBtn">历史任务</button></div>
         <div class="form-card"><div class="step-label"><span class="num">1</span><span>项目名称 <span class="required">*</span></span></div><input class="input" id="projectName" value="企业审计管理系统" placeholder="请输入项目名称"></div>
         <div class="form-card"><div class="step-label"><span class="num">2</span><span>描述你的需求 <span class="required">*</span></span></div>
           <div class="chatbox"><div class="chat-scroll" id="chatScroll">
@@ -276,7 +276,7 @@
     </section>
 
     <section class="view" id="knowledgeView" data-screen-label="知识库管理">
-      <div class="page"><div class="page-head"><div><h1>知识库</h1><p>管理生成需求时可选择的行业资料、业务规则和模板。</p></div><div class="kb-toolbar"><button class="btn">导入文档</button><button class="btn primary" id="createKb">＋ 新建知识库</button></div></div><div class="kb-stats"><div class="stat"><b>2</b><span>知识库</span></div><div class="stat"><b>20</b><span>已解析资料</span></div><div class="stat"><b>156</b><span>可检索知识片段</span></div></div><div class="kb-main"><aside class="kb-list"><div class="kb-list-item active"><b>企业审计业务知识库</b><span>12 份资料 · 今天更新</span></div><div class="kb-list-item"><b>软件工程通用知识库</b><span>8 份资料 · 3 天前更新</span></div></aside><section class="kb-detail"><div class="detail-head"><div><h2>企业审计业务知识库</h2><p>用于审计软件需求分析，内容仅在用户选择后参与本次生成。</p></div><span class="tag ok">可用</span></div><div class="doc-list"><div class="doc-row"><b>内部审计项目管理流程规范 V2.1</b><span>流程制度</span><span>2026-09-09</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>审计问题整改管理办法</b><span>管理制度</span><span>2026-09-08</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>审计工作底稿编制模板</b><span>业务模板</span><span>2026-09-06</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>审计证据分类与归档要求</b><span>业务规则</span><span>2026-09-05</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>信息系统安全与操作留痕要求</b><span>合规要求</span><span>2026-09-02</span><span class="tag warn">待复核</span></div></div></section></div></div>
+      <div class="page"><div class="page-head"><div><h1>知识库</h1><p>管理生成需求时可选择的行业资料、业务规则和模板。</p></div><div class="kb-toolbar"><button class="btn" id="importKbBtn">导入文档</button><input id="kbFileInput" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.md" hidden><button class="btn primary" id="createKb">＋ 新建知识库</button></div></div><div class="kb-stats"><div class="stat"><b>2</b><span>知识库</span></div><div class="stat"><b id="kbDocCount">20</b><span>已解析资料</span></div><div class="stat"><b id="kbChunkCount">156</b><span>可检索知识片段</span></div></div><div class="kb-main"><aside class="kb-list"><div class="kb-list-item active"><b>企业审计业务知识库</b><span>12 份资料 · 今天更新</span></div><div class="kb-list-item"><b>软件工程通用知识库</b><span>8 份资料 · 3 天前更新</span></div></aside><section class="kb-detail"><div class="detail-head"><div><h2>企业审计业务知识库</h2><p>用于审计软件需求分析，内容仅在用户选择后参与本次生成。</p></div><span class="tag ok">可用</span></div><div class="doc-list" id="kbDocList"><div class="doc-row"><b>内部审计项目管理流程规范 V2.1</b><span>流程制度</span><span>2026-09-09</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>审计问题整改管理办法</b><span>管理制度</span><span>2026-09-08</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>审计工作底稿编制模板</b><span>业务模板</span><span>2026-09-06</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>审计证据分类与归档要求</b><span>业务规则</span><span>2026-09-05</span><span class="tag ok">解析完成</span></div><div class="doc-row"><b>信息系统安全与操作留痕要求</b><span>合规要求</span><span>2026-09-02</span><span class="tag warn">待复核</span></div></div></section></div></div>
     </section>
 
     <section class="view" id="assetView" data-screen-label="银行软件资产治理">
@@ -389,7 +389,12 @@
   function openArtifact(name){$$('.result-item[data-artifact]').forEach(item=>item.classList.toggle('active',item.dataset.artifact===name));$$('.artifact-panel').forEach(panel=>panel.classList.toggle('active',panel.dataset.artifactPanel===name));document.querySelector('main').scrollTop=0}
   $$('.result-item[data-artifact]').forEach(item=>{item.onclick=()=>openArtifact(item.dataset.artifact);item.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openArtifact(item.dataset.artifact)}}});
   $('.result-actions .btn').onclick=()=>toast('当前交付物已加入导出队列');
-  $('#newTask').onclick=()=>{round=1;openArtifact('requirements');showView('generate');toast('已创建新的生成任务')};$('#createKb').onclick=()=>toast('新建知识库入口已打开');
+  $('#newTask').onclick=()=>{round=1;openArtifact('requirements');showView('generate');toast('已创建新的生成任务')};
+  $('#helpBtn').onclick=()=>toast('操作顺序：描述需求 → 选择知识库 → 检查并生成 → 补充缺口');
+  $('#historyBtn').onclick=()=>toast('最近任务：企业审计管理系统 · V1.0 · 已完成');
+  $('#createKb').onclick=()=>toast('新建知识库：请填写名称后导入资料');
+  $('#importKbBtn').onclick=()=>$('#kbFileInput').click();
+  $('#kbFileInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const allowed=/\.(pdf|docx?|xlsx?|txt|md)$/i;if(!allowed.test(f.name)){toast('文件格式不支持，请选择 PDF、Word、Excel 或文本文件');e.target.value='';return}if(f.size>50*1024*1024){toast('文件超过 50MB，请拆分后重新上传');e.target.value='';return}const row=document.createElement('div');row.className='doc-row';row.innerHTML='<b></b><span>待分类</span><span>刚刚</span><span class="tag warn">解析中</span>';row.querySelector('b').textContent=f.name;$('#kbDocList').prepend(row);$('#kbDocCount').textContent=Number($('#kbDocCount').textContent)+1;toast('文档已上传，正在解析');setTimeout(()=>{row.querySelector('.tag').className='tag ok';row.querySelector('.tag').textContent='解析完成';$('#kbChunkCount').textContent=Number($('#kbChunkCount').textContent)+12;toast('文档解析完成，已生成 12 个知识片段')},900);e.target.value=''};
   function openAssetPanel(name){$$('.asset-tab').forEach(tab=>tab.classList.toggle('active',tab.dataset.assetTab===name));$$('.asset-panel').forEach(panel=>panel.classList.toggle('active',panel.dataset.assetPanel===name));document.querySelector('main').scrollTop=0}
   $$('.asset-tab').forEach(tab=>tab.onclick=()=>openAssetPanel(tab.dataset.assetTab));
   $('#newImpact').onclick=()=>{openAssetPanel('impact');setTimeout(()=>$('#impactRequirement').focus(),100)};
